@@ -2,7 +2,7 @@ using System;
 using MySql.Data.MySqlClient;
 using ToDoList;
 
-namespace ToDoList.Models
+namespace Airplane.Models
 {
     public class DB
     {
