@@ -1,8 +1,8 @@
 using System;
 using MySql.Data.MySqlClient;
-using ToDoList;
+using Airplanner;
 
-namespace Airplane.Models
+namespace Airplanner.Models
 {
     public class DB
     {

@@ -3,7 +3,7 @@ using System;
 using Airplanner;
 using MySql.Data.MySqlClient;
 
-namespace Airplanner
+namespace Airplanner.Models
 {
   public class City
   {
@@ -21,7 +21,7 @@ namespace Airplanner
       return _cityName;
     }
 
-    public int GetCityId();
+    public int GetCityId()
     {
       return _cityId;
     }
@@ -44,7 +44,7 @@ namespace Airplanner
 
     public override int GetHashCode()
     {
-      string = this.GetCityId() + this.GetCityName();
+      string allHash = this.GetCityId() + this.GetCityName();
       return allHash.GetHashCode();
     }
 
@@ -59,10 +59,10 @@ namespace Airplanner
       MySqlParameter cityName = new MySqlParameter();
       cityName.ParameterName = "@name";
       cityName.Value = this._cityName;
-      cmd.Parameterds.Add(cityName);
+      cmd.Parameters.Add(cityName);
 
       cmd.ExecuteNonQuery();
-      cityId = (int) cmd.LastInsertedId;
+      _cityId = (int) cmd.LastInsertedId;
 
       conn.Close();
       if(conn != null)
@@ -127,6 +127,6 @@ namespace Airplanner
 
       return newCity;
     }
-      
+
   }
 }
